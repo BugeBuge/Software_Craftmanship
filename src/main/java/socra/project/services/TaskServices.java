@@ -16,7 +16,7 @@ public class TaskServices {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getMissions(){
+    public List<Task> getTasks(){
         return taskRepository.findAllByOrderByIdDesc();
     }
 }
