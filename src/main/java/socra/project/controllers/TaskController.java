@@ -31,4 +31,9 @@ public class TaskController {
     public void deleteTask(@PathVariable("Id") Long id) {
         taskService.deleteTask(id);
     }
+
+    @GetMapping("/export/{Id}")
+    public Task getTaskExport(@PathVariable("Id") Long id) {
+        return taskService.getTaskExport(id);
+    }
 }
