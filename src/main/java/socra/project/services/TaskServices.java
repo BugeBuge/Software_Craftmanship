@@ -20,7 +20,16 @@ public class TaskServices {
         return taskRepository.findAllByOrderByIdDesc();
     }
 
-    public void addNewTask(Task gameObject) {
-        taskRepository.save(gameObject);
+    public void addNewTask(Task task) {
+        taskRepository.save(task);
+    }
+
+    public void deleteTask(Long taskId) {
+        if (taskRepository.existsById(taskId)){
+            taskRepository.deleteById(taskId);
+        }
+        else {
+            throw new IllegalStateException("Mission with id " + taskId + " does not exist");
+        }
     }
 }
