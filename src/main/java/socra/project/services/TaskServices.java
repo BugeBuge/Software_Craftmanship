@@ -35,17 +35,17 @@ public class TaskServices {
         }
     }
 
-    public List<Task> getMissionsByKeyword(List<String> keywords) {
-        List<Task> missions = taskRepository.findAllByOrderByIdDesc();
-        int size = missions.size();
+    public List<Task> getTaskByKeyword(List<String> keywords) {
+        List<Task> tasks = taskRepository.findAllByOrderByIdDesc();
+        int size = tasks.size();
         int[] scores = new int[size];
         Arrays.fill(scores, 0);
         List<Task> missionsFiltered = new ArrayList<>();
-        for (Task mission : missions) {
+        for (Task mission : tasks) {
             String description = mission.getMission();
             for (String keyword : keywords) {
                 if (description.toLowerCase().contains(keyword.toLowerCase())){
-                    int position = missions.indexOf(mission);
+                    int position = tasks.indexOf(mission);
                     scores[position]++;
                 }
             }
@@ -56,7 +56,7 @@ public class TaskServices {
             int pos = 0;
             while (pos < scores.length){
                 if (scores[pos] == nbKeywords) {
-                    missionsFiltered.add(missions.get(pos));
+                    missionsFiltered.add(tasks.get(pos));
                 }
                 pos++;
             }
