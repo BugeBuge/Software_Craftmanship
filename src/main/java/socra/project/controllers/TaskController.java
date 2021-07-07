@@ -27,8 +27,18 @@ public class TaskController {
         taskService.addNewTask(task);
     }
 
+    @PutMapping(path = "{Id}")
+    public void editTask(@PathVariable("Id") Long id, @RequestBody Task task) {
+        taskService.updateTask(id, task);
+    }
+
     @DeleteMapping(path = "{Id}")
     public void deleteTask(@PathVariable("Id") Long id) {
         taskService.deleteTask(id);
+    }
+
+    @GetMapping("/keywords")
+    public List<Task> getTaskByKeyword(@RequestParam List<String> keywords) {
+        return taskService.getTaskByKeyword(keywords);
     }
 }
