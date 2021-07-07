@@ -32,4 +32,13 @@ public class TaskServices {
             throw new IllegalStateException("Mission with id " + taskId + " does not exist");
         }
     }
+
+    public Task getTaskExport(Long taskId) {
+        Task taskInDb = taskRepository.findById(taskId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "Task with id " + taskId + " does not exist"
+                ));
+        //TO DO
+        return taskInDb;
+    }
 }
