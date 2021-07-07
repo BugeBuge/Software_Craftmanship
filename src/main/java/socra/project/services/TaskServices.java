@@ -19,4 +19,8 @@ public class TaskServices {
     public List<Task> getTasks(){
         return taskRepository.findAllByOrderByIdDesc();
     }
+
+    public void addNewTask(Task gameObject) {
+        taskRepository.save(gameObject);
+    }
 }
