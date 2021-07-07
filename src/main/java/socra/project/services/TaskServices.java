@@ -11,6 +11,10 @@ import java.util.List;
 public class TaskServices {
     private final TaskRepository taskRepository;
 
+    public TaskRepository getTaskRepository() {
+        return taskRepository;
+    }
+
     @Autowired
     public TaskServices(TaskRepository taskRepository){
         this.taskRepository = taskRepository;
