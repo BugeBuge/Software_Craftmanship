@@ -12,6 +12,8 @@ For this api we have use a classic rest api wich follows the pattern controllers
 
 For the workflow of the project we have choose to use a basic git flow, with release, develop and feature.
 
+We have also implemented the CI on github with travis.  
+
 # Requirements
 
 For this project you'll need a java editor and postgres sql.
