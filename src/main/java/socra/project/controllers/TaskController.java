@@ -37,6 +37,11 @@ public class TaskController {
         taskService.deleteTask(id);
     }
 
+    @GetMapping("/export/{Id}")
+    public Task getTaskExport(@PathVariable("Id") Long id) {
+        return taskService.getTaskExport(id);
+    }
+
     @GetMapping("/keywords")
     public List<Task> getTaskByKeyword(@RequestParam List<String> keywords) {
         return taskService.getTaskByKeyword(keywords);
