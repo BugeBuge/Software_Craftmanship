@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - openjdk16
+services:
+  - postgresql
+script:
+  - ./mvnw clean install
+before_install:
+  - chmod +x mvnw
+before_script:
+  - psql -c 'create database socra;' -U postgres
